@@ -13,7 +13,7 @@ def noencrypt(source, target, env):
 if 'offset' in board.get("build").keys():
   LD_FLASH_OFFSET = board.get("build.offset")
 
-  for define in env['CPPDEFINES']:
+  for define in list(env['CPPDEFINES']):
     if define[0] == "VECT_TAB_OFFSET":
       env['CPPDEFINES'].remove(define)
   env['CPPDEFINES'].append(("VECT_TAB_OFFSET", LD_FLASH_OFFSET))

@@ -45,6 +45,8 @@ def add_to_feat_cnf(feature, flines):
 		parts = dep.split('=')
 		name = parts.pop(0)
 		rest = '='.join(parts)
+		if name == 'build_src_filter':
+			name = 'src_filter'
 		if name in ['extra_scripts', 'src_filter', 'lib_ignore']:
 			feat[name] = rest
 		else:

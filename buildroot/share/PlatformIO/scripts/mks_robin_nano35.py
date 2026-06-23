@@ -11,7 +11,7 @@ except ImportError:
 
 
 # Relocate firmware from 0x08000000 to 0x08007000
-for define in env['CPPDEFINES']:
+for define in list(env['CPPDEFINES']):
     if define[0] == "VECT_TAB_ADDR":
         env['CPPDEFINES'].remove(define)
 env['CPPDEFINES'].append(("VECT_TAB_ADDR", "0x08007000"))

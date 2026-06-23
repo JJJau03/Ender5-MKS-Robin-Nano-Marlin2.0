@@ -42,7 +42,7 @@ env.AddPostAction("upload", after_upload)
 flash_size = 0
 vect_tab_addr = 0
 
-for define in env['CPPDEFINES']:
+for define in list(env['CPPDEFINES']):
     if define[0] == "VECT_TAB_ADDR":
         vect_tab_addr = define[1]
     if define[0] == "STM32_FLASH_SIZE":
